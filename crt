@@ -1,0 +1,59 @@
+package crt;
+
+/**
+ *
+ * @author Asus
+ */
+public class CRT {
+
+    static int rest(int x,int y){
+        int m0=y;
+        int t,q;
+        int x0=0;
+        int x1=1;
+        if(y==1)
+            return 0;
+        
+        while(x>1){
+            q=x/y;
+            t=y;
+            y=x%y;
+            x=t;
+            t=x0;
+            x0=x1-q*x0;
+            x1=t;
+        }
+           
+        if(x1<0){
+            x1+=m0;
+            
+        }
+    return x1;
+    }
+    
+    public static int bul(int sayı[],int kalan[],int uzunluk){
+        int prod=1;
+        for (int i = 0; i < uzunluk; i++) {
+            prod*=sayı[i];
+            
+        }
+    int sonuc=0;
+    for (int i = 0; i < uzunluk; i++) {
+    int pp=prod/sayı[i];
+    
+    
+    sonuc+=kalan[i]*rest(pp,sayı[i])*pp;
+        }
+    return sonuc%prod;
+    }
+    public static void main(String[] args) {
+        // sayılar aralarında asal olmalı
+        
+    int sayı[]={5,7,8};
+     int kalan[]={3,1,6};
+    int uzunluk=sayı.length;
+
+        System.out.println("Degerimiz= "+bul(sayı,kalan,uzunluk)+".");
+    }
+    
+}
