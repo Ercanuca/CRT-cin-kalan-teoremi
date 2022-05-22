@@ -1,0 +1,1 @@
+# CRT-cin-kalan-teoremi
